@@ -1,0 +1,1223 @@
+
+<script>
+    var isEdit=false;
+    var docId=-1;
+    
+    var helpWin=new Array();
+    helpWin[1]='../help/Help-Home.htm';
+    helpWin[2]='../help/Help-MyDetails.htm';
+    helpWin[3]='../help/Help-Users.htm';
+    helpWin[4]='../help/Help-Companies.htm';
+    helpWin[5]='../help/Help-CourseCategories.htm';
+    helpWin[6]='../help/Help-Course.htm';
+    helpWin[7]='../help/Help-Feedback.htm';
+    
+    function openLoginHelp()
+    {
+    alert("This feature is currently under construction!");
+    }
+    </script>
+    
+    <!DOCTYPE html>
+    <html  class="bgblue" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>L2Pro Africa - Learner</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/Qulacomm.ico" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/font.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/app.css" />
+    <link href="../../assets/css/styles.css" rel="stylesheet" type="text/css">
+    <meta name="language" content="en" />
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le styles -->
+    <!-- Le fav and touch icons -->
+    
+    <script src="../../assets/js/jquery.min.js"></script>
+    
+         <!-- Bootstrap -->
+      <script src="../../assets/js/bootstrap.js"></script>
+      <!--JsAlert --> 
+      <script src="../../assets/js/jsAlert/alertify.min.js"></script>
+     
+     <link rel="stylesheet" href="../../assets/js/jsAlert/alertify.core.css" />
+    <!--<link rel="stylesheet" href="js/jsAlert/alertify.default.css" id="toggleCSS" />-->
+    <link rel="stylesheet" href="../../assets/js/jsAlert/alertify.bootstrap.css" />
+        <!-- App -->
+     <script src="../../assets/js/app.js"></script>
+      <script src="../../assets/js/app.plugin.js"></script>
+       <script src="../../assets/js/libs/modernizr.js"></script>
+        <!-- slim scroll -->
+      <script src="../../assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+     
+    
+      <!-- parsley(Validation) -->
+      <script src="../../assets/js/parsley/parsley.min.js"></script>
+      <script src="../../assets/js/parsley/parsley.extend.js"></script>
+      <!--chart-->
+    
+    <!-- date Picker --> 
+    <script src="../../assets/js/datepicker/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="../../assets/js/datepicker/bootstrap-datepicker.css">
+    
+      <script src="../../assets/js/common.js?2024-07-18 15"></script>
+      <SCRIPT language="JavaScript" src="../global/global.js"></SCRIPT>
+    <script>$(function() {
+        $('a.page-scroll').bind('click', function(event) {
+            var $anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $($anchor.attr('href')).offset().top-200
+            }, 1500, 'easeInOutExpo');
+            event.preventDefault();
+        });
+        
+        $("#mobileMenuBtn").click(function(){
+            $("#mobileMenu").slideToggle();
+            
+            
+        })
+        
+    });
+    
+    /*document.onreadystatechange = function () {
+      var state = document.readyState
+      if (state == 'complete') {
+          setTimeout(function(){
+              document.getElementById('interactive');
+             document.getElementById('loaderDiv').style.visibility="hidden";
+          },1000);
+      }
+    }*/
+    
+    
+    jQuery(window).load(function() {
+     
+     jQuery("#preloaderDiv").delay(100).fadeOut();
+    })
+    
+    
+    <!--
+    function MM_swapImgRestore() { //v3.0
+      var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+    }
+    
+    function MM_preloadImages() { //v3.0
+      var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+        var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+        if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+    }
+    
+    function MM_findObj(n, d) { //v4.01
+      var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+        d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+      if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+      for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+      if(!x && d.getElementById) x=d.getElementById(n); return x;
+    }
+    
+    function MM_swapImage() { //v3.0
+      var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+       if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+    }
+    //-->
+    
+    
+    var imgArray=new Array();
+    imgArray[0]='../../graphics/Home_Btn.png';
+    imgArray[1]='../../graphics/MyDetails_Btn.png';
+    imgArray[2]='../../graphics/Courses_Btn.png';
+    imgArray[3]='../../graphics/Feedback_Normal.png';
+    imgArray[4]='../../graphics/Logout_Btn.png';
+    
+    var imgArrayRoll=new Array();
+    imgArrayRoll[0]='../../graphics/Home_Roll_Btn.png';
+    imgArrayRoll[1]='../../graphics/MyDetails_Roll_Btn.png';
+    imgArrayRoll[2]='../../graphics/Courses_Roll_Btn.png';
+    imgArrayRoll[3]='../../graphics/Feedback_RollOver.png';
+    imgArrayRoll[4]='../../graphics/Logout_Roll_Btn.png';
+    
+    var currentObj='';
+    var currentTD='';
+    var totalItems=5;
+    
+    function menuClick(obj,link)
+    {
+    var templast='mrow'+totalItems;
+    if(obj.id!=templast)
+        {
+    for(i=1;i<=totalItems;i++)
+    {
+        var tempRow=eval("document.getElementById('mrow"+i+"')");
+        tempRow.className='menuOff';
+    
+        var tempRow=eval("document.getElementById('mIcon"+i+"')");
+        tempRow.src=imgArray[i-1];
+    }
+    
+        obj.className='menuClicked'
+        currentObj=obj.id
+    
+        var tempNo=obj.id.substring(4,obj.id.length);
+        var tempImgId=eval('mIcon'+tempNo);
+        tempImgId.src=imgArrayRoll[tempNo-1];
+        }
+    
+        if(link!='')
+        {
+        parent.ContentPanel.location=link;
+        }
+    }
+    
+    function menuOver(obj)
+    {
+        obj.style.cursor='hand';
+        //alert("obj.id"+obj.id+"currentObj"+currentObj);
+        if(obj.id!=currentObj)
+        {
+        obj.className='menuOn';
+        var tempNo=obj.id.substring(4,obj.id.length);
+        var tempImgId=eval('mIcon'+tempNo);
+        tempImgId.src=imgArrayRoll[tempNo-1];
+        
+        }
+    }
+    
+    function menuOut(obj)
+    {
+        if(obj.id!=currentObj)
+        {
+        obj.className='menuOff';
+        var tempNo=obj.id.substring(4,obj.id.length);
+        var tempImgId=eval('mIcon'+tempNo);
+        tempImgId.src=imgArray[tempNo-1];
+        }
+    }
+    
+    function menuStart()
+    {
+    
+    document.getElementById("mrow1").className='menuClicked';
+    currentObj='mrow1';
+    document.getElementById("mIcon1").src=imgArrayRoll[0];
+    }
+    
+    function setState(obj)
+    {
+    //if(obj.id!=currentObj)
+    //	{
+        for(i=1;i<=totalItems;i++)
+    {
+        var tempTD=eval("document.getElementById('td"+i+"')");
+        tempTD.className='menuTextOff';
+    }
+    obj.className='menuTextClicked';
+    //	}
+    currentTD=obj.id;
+    }
+    
+    function setOverSate(obj)
+    {
+        obj.className='menuTextOn';
+    }
+    
+    function setOutSate(obj)
+    {
+    //alert("currentObj : "+currentTD);
+        if(obj.id!=currentTD)
+        {
+    obj.className='menuTextOff';
+        }
+    }
+    
+    
+    </script>
+      </head>
+    <body>
+    <div id="preloaderDiv" class="preloadBg">
+        <div id="overlayBlur"></div>
+        <div class="preloadDiv"> <img src="../../assets/images/default.svg" class="loadImg text-center"/>
+            <div class="loadText">Please wait<span>.</span><span>.</span><span>.</span>
+            </div>
+        </div>
+    </div>
+    
+    <section class="vbox main-votex">
+     <header class="header dk navbar">
+        <div class="navbar-header"> 
+         <!--<a href="javascript:void(0)" style="cursor: default" class="navbar-brand logImg" data-toggle="fullscreen"><img src="../../assets/images/logo.jpg" class="logo1"><img src="../../assets/images/NLU-logo.jpg" class="logo2"><img src="../../assets/images/CIIPC-Logo.jpg" class="logo3"><img src="../../assets/images/cipam-logo.png	" class="logo4"></a>  -->  
+    
+         <a href="javascript:void(0)" style="cursor: default" class="navbar-brand logImg" data-toggle="fullscreen"><img src="../../assets/images/logonew.png" class="logo1"></a>
+        
+           <!-- <a href="javascript:void(0)" style="cursor: default" class="navbar-brand logImg" data-toggle="fullscreen"><img src="../../assets/images/logo.jpg" class="logo1"></a>--> </div>
+        
+        <ul class="callout nav navbar-nav navbar-right m-n hidden-xs nav-user">
+                    
+          <li class="dropdown"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span class="thumb-sm avatar pull-left"> 
+                            <img  src="../../assets/images/avatar_default.jpg"> 
+                      
+          </span> <span>Offor <b class="caret"></b></span> </a>
+            <ul class="dropdown-menu animated fadeInRight">
+              <span class="arrow top"></span>
+               <!--<li> <a href="changePassword.php">Change Password</a> </li>-->
+                <!-- <li> <a href="../mydtls/mydtls.php">Profile</a> </li>
+              <li class="divider"></li>-->
+              <li> <a href="#" onClick="call_logout()">Logout</a> </li>
+            </ul>
+          </li>
+        </ul>
+      </header>
+    </section>
+    <section>
+      <section class="hbox stretch">
+      
+     <aside class="bg-dark lter  hidden-print navTop" id="nav">
+          <section class="vbox">
+            <section class="w-f scrollable">
+              <div class="slimScrollDiv">
+                <div class="slim-scroll " data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
+                  <!-- nav -->
+                   <a id="mobileMenuBtn" class="btn btn-link mobileMenuBtn visible-xs "> <i class="fa fa-bars"></i> </a>
+                     <nav class="nav-primary mobileMenu" id="mobileMenu" >
+                     <ul class="nav" id="yw0">
+                        <li id="user" class="mobileuser"><span class="thumb-sm avatar pull-left"> 
+                                            <img  src="../../assets/images/avatar_default.jpg"> 
+                         </span> <span>offorchukwuebuka8@gmail.com</li>
+                      <li id="home"   class="nav home_menu"><a href="../intface/index.html"><span>Home</span></a></li>
+                         <li id="myDatailActive" class="nav my_details_menu"><a href="../mydtls/mydtls.html"><span>My Profile</span></a></li> 
+                          <li id="coursesActive" class="nav courses_menu"><a href="../catlist/courses.html"><span>Courses</span></a></li>
+                           
+                            <li id="feedbackActive" class="nav feedback_menu"><a href="../feedback/feedback.html"><span>Feedback</span></a></li>
+                            
+                      <li class="nav"><a href="#" onClick="call_logout()"><span>Logout</span></a></li>
+                    </ul>
+                     </nav>
+                  <nav class="nav-primary hidden-xs">
+                 
+                    <ul class="nav" id="yw0">
+                     
+                      <li id="home" class="active nav home_menu"><a href="../intface/index.html"><i class="fa fa-home icon"><b class="bg-danger"></b></i><span>Home</span></a></li>
+            
+                       <!-- <li id="clientActive" class="nav"><a href="#"><i class="fa fa-user icon"><b class="bg-danger"></b></i><span>Clients</span></a></li> -->
+                         <li id="myDatailActive" class="nav my_details_menu"><a href="../mydtls/mydtls.html"><i class="fa fa-users icon"><b class="bg-danger"></b></i><span>My Profile</span></a></li> 
+                          <li id="coursesActive" class="nav courses_menu"><a href="../catlist/courses.html"><i class="fa fa-edit icon"><b class="bg-danger"></b></i><span>Courses</span></a></li>
+                           
+                            <li id="feedbackActive" class="nav feedback_menu"><a href="../feedback/feedback.php"><i class="fa fa-question-circle icon"><b class="bg-danger"></b></i><span>Feedback</span></a></li>
+                            
+                      <li class="nav"><a href="#" onClick="call_logout()"><i class="fa fa-times-circle icon"><b class="bg-danger"></b></i><span>Logout</span></a></li>
+                    </ul>
+                 
+                </div>
+                <div class="slimScrollBar"></div>
+                <div lass="slimScrollRail"></div>
+              </div>
+            </section>
+          </section>
+        </aside> 
+    <section id="content" class="rightside rightContenBg">
+    
+      <div class="scrollable courseCountBg">  
+                  <span class="font-bold padder attemptedSessionDiv" >
+                    
+    
+                    <!--<span class="attemptedSession strong" id="attemptedSession"></span>
+                    <span class="h5">Course</span> -->
+                    
+                    
+                    </span></div>
+    <style>
+        .nav-tabs>li,
+        nav-tabs>li>a {
+            float: left;
+            width: 33.0%;
+            color: #fff;
+            margin-bottom: -1px;
+            border-radius: 10px 10px 0 0;
+            background-color: #00558e;
+        }
+    
+        .nav-tabs>li>a,
+        nav-tabs>li>a:hover,
+        nav-tabs>li:hover {
+            text-align: center;
+            font-size: 16px;
+            margin-right: 0px;
+            border-radius: 10px 10px 0 0;
+            color: #fff;
+            cursor: pointer;
+            background-color: #00558e;
+            border: 1px solid #054b79;
+            border-bottom-color: transparent;
+        }
+    
+        .nav-tabs>li {
+            margin-right: 5px;
+        }
+    
+        .nav-tabs>li.active {
+            color: #fff;
+            margin-right: 5px;
+            background-color: #ffb901 !important;
+        }
+    
+        .nav-tabs>li:last-child,
+        .nav-tabs>li.active:last-child {
+            margin-right: 0px;
+        }
+    
+        .nav-tabs>li.active>a,
+        .nav-tabs>li.active>a:hover,
+        .nav-tabs>li.active>a:focus {
+            color: #fff !important;
+            margin-right: 0px;
+            cursor: pointer;
+            background-color: #ffb901 !important;
+            border: 1px solid #ffb901;
+            border-bottom-color: transparent;
+        }
+    
+        nav-tabs>li>a:hover {
+            border-color: #ffb901 #ffb901 #ffb901;
+        }
+    
+        .nav>li>a:hover,
+        .nav>li>a:focus {
+            text-decoration: none;
+            color: #fff !important;
+            background-color: #00558e !important;
+            border: 1px solid #054b79;
+        }
+    
+        .table-responsive45 {
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+    
+        .promo .table thead {
+            padding-top: 10px;
+        }
+    
+        .table-responsive {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+    
+        .panel-footer {
+    
+            padding: 20px 0px;
+    
+        }
+    
+    
+        #share {
+            width: 100%;
+            margin: 0px auto;
+            text-align: center;
+        }
+    
+        /* buttons */
+    
+        #share a {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            margin: 8px;
+            border-radius: 50%;
+            font-size: 24px;
+            color: #fff;
+            opacity: 0.75;
+            transition: opacity 0.15s linear;
+        }
+    
+        #share a:hover {
+            opacity: 1;
+        }
+    
+        /* icons */
+    
+        #share i {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    
+        /* colors */
+    
+        .facebook {
+            background: #3b5998;
+        }
+    
+        .twitter {
+            background: #55acee;
+        }
+    
+        .googleplus {
+            background: #dd4b39;
+        }
+    
+        .linkedin {
+            background: #0077b5;
+        }
+    </style>
+    
+    <script>
+        function openFile(docid, winWd, winHt, winRsz, winScl, winDir, winLoc, winMenu, winTool, winSts) {
+    
+            var winLeft = (screen.width - winWd) / 2;
+            var winTop = (screen.height - winHt) / 2;
+            var settings = 'left=' + winLeft + ',top=' + winTop + ',width=' + winWd + ',height=' + winHt + ',toolbar=' +
+                winTool + ',menubar=' + winMenu + ',resizable=' + winRsz + ',statusbar=' + winSts + ',scrollbars=' + winScl +
+                ',location=' + winLoc + ',directories=' + winDir;
+            var fpath = "view.php?docid=" + docid;
+            //alert(fpath);
+            var fileWin = window.open(fpath, 'fwind', settings);
+            fileWin.focus();
+        }
+        //function to ask user whether he wants to delete the course or not
+        //Function to confirm if the user wants to delete the selected requests or not
+    
+        function openFileZip(docid, launchid, winWd, winHt, winRsz, winScl, winDir, winLoc, winMenu, winTool, winSts) {
+    
+            var winLeft = (screen.width - winWd) / 2;
+            var winTop = (screen.height - winHt) / 2;
+            var settings = 'left=' + winLeft + ',top=' + winTop + ',width=' + winWd + ',height=' + winHt + ',toolbar=' +
+                winTool + ',menubar=' + winMenu + ',resizable=' + winRsz + ',statusbar=' + winSts + ',scrollbars=' + winScl +
+                ',location=' + winLoc + ',directories=' + winDir;
+            //alert(settings);
+            var fpath = "view.php?docid=" + docid + "&launchid=" + launchid;
+    
+            var fileWin = window.open(fpath, 'fwind', settings);
+            fileWin.focus();
+        }
+    
+        function submitSearch() {
+            document.searchcourse.submit();
+        }
+    
+    
+        function getCourse(rowId, file) {
+            document.location.href = "../../courses/" + rowId + "/" + file;
+        }
+        $(document).ready(function() {
+            localStorage.removeItem("download_status");
+        });
+    
+        function launch_content(cid, scoid, width, height) {
+            //	alert(scoid);
+            /////generic code//////
+            var w = width;
+            var h = height;
+            var winl = (screen.width - w) / 2;
+            var wint = (screen.height - h) / 2;
+            if (winl < 0) winl = 0;
+            if (wint < 0) wint = 0;
+            windowprops = "height=" + h + ",width=" + w + ",top=" + wint + ",left=" + winl + ",location=no," +
+                "scrollbars=no,menubars=no,toolbars=no,resizable=no,status=no,directories=no";
+            path = "playscorm.php?cid=" + cid + "&scoid=" + scoid;
+            var con_window = window.open(path, "win", windowprops);
+            con_window.focus();
+        }
+    
+        function launch_survey(user_id) {
+            //	alert(scoid);
+            /////generic code//////
+            var w = 1024;
+            var h = 768;
+            var winl = (screen.width - w) / 2;
+            var wint = (screen.height - h) / 2;
+            if (winl < 0) winl = 0;
+            if (wint < 0) wint = 0;
+            windowprops = "height=" + h + ",width=" + w + ",top=" + wint + ",left=" + winl + ",location=no," +
+                "scrollbars=no,menubars=no,toolbars=no,resizable=no,status=no,directories=no";
+            path = "../survey/survey.php?user_id=" + user_id;
+            var con_window = window.open(path, "win", windowprops);
+            con_window.focus();
+        }
+    
+    
+    
+        function getPackage(file) {
+            alert("This option is not available to Guests!");
+            //document.location.href="../../courses/download/"+file;
+        }
+    
+        function courseGroupSubmit(group) {
+            document.getElementById('cGroup').value = group;
+            document.search.submit();
+        }
+    
+    
+        //to create and open certificate
+    
+        function open_cert(docId, userRowId, levelname, download_status, user_name) {
+    
+            download_status = download_status;
+            if (localStorage.getItem("download_status")) {
+                download_status = localStorage.getItem("download_status");
+            }
+            var w = 1024;
+            var h = 600;
+            var winl = (screen.width - w) / 2;
+            var wint = (screen.height - h) / 2;
+            if (winl < 0) winl = 0;
+            if (wint < 0) wint = 0;
+            windowprops = "height=" + h + ",width=" + w + ",top=" + wint + ",left=" + winl + ",location=no," +
+                "scrollbars=no,menubars=no,toolbars=no,resizable=no,status=no,directories=no";
+            path = '../../webapi/certs/library/certificate-create.php?docId=' + docId + '&userRowId=' + userRowId +
+                '&levelname=' + levelname;
+            //alert(download_status)
+            if (download_status == 0) {
+                localStorage.setItem("download_status", download_status);
+                localStorage.setItem("download_certificate_path", path);
+                $('#checkDownloadCertificateModal').modal('show');
+                return 0;
+            } else {
+                var con_window = window.open(path, "win", windowprops);
+                con_window.focus();
+            }
+    
+        }
+    </script>
+    
+    
+    <div class="modal fade" id="checkDownloadCertificateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="overflow:auto">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="position: relative;">
+                    <h5 class="modal-title" id="exampleModalLongTitle"> Hi </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;top: 0;right: 15px;bottom: 0;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" id="updateUserinfoform" action="#" novalidate="novalidate">
+                        <div style="display: flex;flex-wrap: wrap;">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <b>Please take a moment to complete these profile fields, before you download the
+                                    certificate</b>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <input type="hidden" id="user_id_update_field" name="user_id" value="687022">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label"> Education Level</label>
+                                    <select class="form-control " id="input_education" name="education">
+                                        <option value="">Select Education</option>
+                                        <option value="School" >
+                                            School</option>
+                                        <option value="Graduate" >
+                                            Graduate</option>
+                                        <option value="Post-Graduate" >
+                                            Post-Graduate</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label"> Education Details</label>
+                                    <input type="text" class="form-control " id="input_education_details" name="education_details" value="">
+                                </div>
+                            </div>
+    
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label"> Gender </label>
+                                    <select class="form-control " id="input_gender" name="gender">
+                                        <option value="">Select Gender</option>
+                                        <option value="male" >
+                                            Male</option>
+                                        <option value="female" >
+                                            Female</option>
+                                        <option value="i prefer not to say" >
+                                            I prefer not to say</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label"> Profession</label>
+                                    <select class="form-control " id="input_profession" name="profession">
+                                        <option value="">Select Profession</option>
+                                        <option value="Student" >
+                                            Student</option>
+                                        <option value="Working Professional" >
+                                            Working Professional</option>
+                                        <option value="Entrepreneur" >
+                                            Entrepreneur</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <div class="col-sm-6 col-md-6 col-lg-6 profession_inputes_filds">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label"> Organization</label>
+                                    <input type="text" class="form-control " id="input_organization" name="organization" value="">
+                                    <span style="color:red;display: none" id="organization-error">This value is required.</span>
+                                </div>
+                            </div>
+    
+                            <div class="col-sm-6 col-md-6 col-lg-6 profession_inputes_filds">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label"> Professional Experience</label>
+                                    <input type="text" class="form-control " id="input_profession_experience" name="profession_experience" value="">
+                                    <span style="color:red;display: none" id="profession_experience-error">This value is required.</span>
+                                </div>
+                            </div>
+    
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="learn_from" class="col-form-label"> How did you hear about us</label>
+                                    <select class="form-control " id="learn_from" name="learn_from">
+                                        <option value="">Select</option>
+                                        <option value=" Social Media" >
+                                            Social Media</option>
+                                        <option value="Webinar/Event" >
+                                            Webinar/Event</option>
+                                        <option value="Internet Search" >
+                                            Internet Search</option>
+    
+                                        <option value="Friends/Colleague" >
+                                            Friends/Colleague</option>
+                                        <option value="Others" >
+                                            Others</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label"> City</label>
+                                    <input type="text" class="form-control " id="input_user_city" name="user_city" value="">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label"> State</label>
+                                    <input type="text" class="form-control " id="input_user_state" name="user_state" value="">
+                                </div>
+                            </div>
+    
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label"> Country</label>
+                                    <input type="text" class="form-control " id="input_user_country" name="user_country" value="">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Pin Code</label>
+                                    <input type="text" class="form-control " id="input_zip_code" name="zip_code" value="">
+                                </div>
+                            </div>
+    
+                            <!-- <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                    <div class="checkbox-1">
+                                            <label style="margin-bottom:0px;">
+                                                <input type="checkbox" id="privacy_policy_checkbox" name="privacy_policy_checkbox"
+                                                    class="regular-checkbox">
+                                                <label id="terms-conds-label" for="privacy_policy_checkbox"></label>
+                                                <span class="check"> </span>
+                                            </label>
+                                            <span class="remember">
+                                            I agree to L2pro <a href="javascript:void(0)" onClick="showPrivacyPolicyModal()"    class="text-info"><u> Privacy Policy </u>
+                                            </a>
+                                            </span> <br>
+                                            <span class="mt-2" id="privacy_policy_checkbox_error" style=" color: red;"></span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary"> Update </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    
+    <div class="modal fade" id="ShareCertificateModal" tabindex="-1" role="dialog" aria-labelledby="ShareCertificateModelTitle" aria-hidden="true" style="overflow:auto">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="position: relative;">
+                    <h5 class="modal-title" id="ShareCertificateModelTitle"> Hi </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;top: 0;right: 15px;bottom: 0;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="share">
+                                Please choose any of the following social media platforms to share your certificate with your social media connections.
+    
+                                Happy Learning...
+                                <br>
+                                <!-- google plus -->
+                                <!-- <a class="googleplus" href="https://plus.google.com/share?url=" target="blank">
+                                    <i class="fa fa-google"></i>
+                                </a> -->
+                                <!-- facebook -->
+                                <a class="facebook" href="" target="blank" id="facebook_link_button"><i class="fa fa-facebook"></i></a>
+                                <!-- twitter -->
+                                <a class="twitter" href="" target="blank" id="twitter_link_button"><i class="fa fa-twitter"></i></a>
+                                <!-- linkedin -->
+                                <a class="linkedin" href="" target="blank" id="linkedin_link_button"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="term modal fade" id="PrivacyPolicyModel" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title modal-course-title"> Privacy Policy</h4>
+                </div>
+                <div class="modal-body">
+                    <section class="scrollable ">
+                        <!--start Midlle container -->
+                        <div class="col-md-12 col-sm-12 chComponentBg">
+                            <div class="customContainer">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="overviewBg">
+                                        <p> </p>
+                                        <div class="clear"></div>
+                                        <h2>Waiting for content </h2>
+                                        <p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ####### end  Midlle container-->
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=62d14a75987470001990b538&product=inline-share-buttons" async="async"></script>
+    <script>
+        var $form = $('#updateUserinfoform');
+    
+        validator = $form.validate({
+            rules: {
+                education: {
+                    required: true
+                },
+                user_country: {
+                    required: true
+                },
+                user_state: {
+                    required: true,
+                },
+                user_city: {
+                    required: true,
+                },
+                zip_code: {
+                    required: true
+                },
+                profession: {
+                    required: true
+                },
+                gender: {
+                    required: true
+                },
+                learn_from: {
+                    required: true
+                },
+                education_details: {
+                    required: true
+                },
+                /* privacy_policy_checkbox: {
+                    required: true
+                } */
+    
+            },
+            errorPlacement: function(error, element) {
+                $('#privacy_policy_checkbox_error').text('');
+                var error_html_id = element.attr('id');
+                if (error_html_id == 'privacy_policy_checkbox') {
+                    $('#privacy_policy_checkbox_error').text('This value is required.');
+                } else {
+                    $('#' + error_html_id + '-error').remove();
+                    $('<label id="' + error_html_id + '-error" class="error" for="input_education" style=" color: red;">This value is required.</label>').insertAfter(element);
+                }
+            }
+        });
+    
+    
+        $(document).on('change', '#input_profession', function(e) {
+            showHideProfessionFields($(this).val());
+        })
+    
+        function openShareCertificateModel(download_status, facebook_link, linkedin_link, twitter_link) {
+            $("#facebook_link_button").attr("href", facebook_link);
+            $("#linkedin_link_button").attr("href", linkedin_link);
+            $("#twitter_link_button").attr("href", twitter_link);
+            download_status = download_status;
+            if (localStorage.getItem("download_status")) {
+                download_status = localStorage.getItem("download_status");
+            }
+            if (download_status == 0) {
+                localStorage.setItem("ShareCertificateMode", 1);
+                $('#checkDownloadCertificateModal').modal('show');
+            } else {
+                $('#ShareCertificateModal').modal('show');
+            }
+        }
+    
+        function showHideProfessionFields(value) {
+            if (value == 'Working Professional' || value == 'Entrepreneur') {
+                $('.profession_inputes_filds').show();
+            } else {
+                $('.profession_inputes_filds').hide();
+            }
+        }
+    
+        var profession = '';
+        showHideProfessionFields(profession);
+    
+        $('#updateUserinfoform').on('submit', function(e) {
+            e.preventDefault();
+            if (validator.valid()) {
+                var is_invalid = 1;
+                var profession = $('#input_profession').val();
+                if (profession == 'Working Professional') {
+                    var organization = $('#input_organization').val();
+                    var experience = $('#input_profession_experience').val();
+                    if (!organization) {
+                        is_invalid = 0;
+                        $('#organization-error').show();
+                    }
+                    if (!experience) {
+                        is_invalid = 0;
+                        $('#profession_experience-error').show();
+                    }
+                }
+                if (is_invalid == 1) {
+                    updateUserinfo();
+                }
+            }
+        });
+    
+        function updateUserinfo() {
+            $.ajax({
+                type: "POST",
+                url: 'update_user_info.php',
+                data: $('#updateUserinfoform').serialize(),
+                success: function(response) {
+                    var jsonData = JSON.parse(response);
+                    console.log(jsonData)
+                    if (jsonData.success == "1") {
+                      $('#checkDownloadCertificateModal').modal('hide');
+                        //window.location.reload();
+                        localStorage.removeItem("download_status")
+                        localStorage.setItem("download_status", 1);
+                        if (localStorage.getItem("ShareCertificateMode") == 1) {
+                            localStorage.removeItem("ShareCertificateMode")
+                            $('#ShareCertificateModal').modal('show');
+                        } else {
+                            var con_window = window.open(localStorage.getItem("download_certificate_path"), "win",
+                                windowprops);
+                            con_window.focus();
+                        }
+    
+                    } else {
+                        //alert('Invalid Credentials!');
+                    }
+                }
+            });
+        }
+    
+        function showPrivacyPolicyModal() {
+            $('#PrivacyPolicyModel').modal('show');
+        }
+    </script>
+    <!-- -->
+    
+    
+    <section class="panel panel-default  padder">
+        <!-- breadcrumbs -->
+        <!-- breadcrumbs -->
+        <section>
+            <div class="panel-body nobot panelBg" style="margin-top:2px">
+                <div class="col-lg-12 col-md-12 col-sm-12 show-mon">
+                    <div class="pull-left m-b-xs  coursetitle"> <span class="orange_heading"><strong>Courses</strong></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-sm-12 col-md-12 " style="margin-top:12px;">
+                <div class="row">
+                    <form name="search" action="courses.html" method="post">
+                        <div class="pull-right text-right searchbg" style="padding-left:10px">
+                            <div class="search inline"> <span>
+                                    Title:&nbsp;<input name="cTitle" class='input-sm form-control searchbtn' type="text" id="cTitle" size="15" maxlength="30" value='' placeholder="Title">
+    
+                                    
+                                    <input name="cGroup" value='Basic' type="hidden" id="cGroup" size="15" maxlength="30">
+                                    <!--<i class="fa fa-search"></i>-->
+                                    <button type="submit" id='Go' title='Search users matching specified criteria' name="Go" class="btn btn-sm btn-blue searchButton"> <i class="fa fa-search"></i></button>
+    
+                                </span> <span class="text-right"> <a href="courses.html" class="btn  btn-blue btn-reset"> <i class="fa fa-refresh"></i> </a> </span> </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    
+        </section>
+    
+    
+        <section class="">
+    
+            <div class="rightHead text-center bgWt" style='min-height:40px'>
+    
+                <section class="col-md-12 col-sm-12">
+                    <div class="row m-l-none m-r-none bg-light lter">
+                        <div class="col-sm-4 col-md-4 padder-v  text-left" style="padding-left: 0px;">
+    
+                            <div class="clear" style="padding-top: 0px;"></div>
+                            <a class="clear" href="#">
+                                <span class="h3  m-t-xs"><strong>Courses:</strong></span>
+                                <small class="text-muted text-uc count">
+                                    3                            </small>
+                            </a>
+                        </div>
+                        <!--<div class="col-sm-7 col-md-7 padder-v text-right">
+                                    <div class="clear" style="padding-top: 20px;"></div>
+                                  &nbsp;&nbsp;&nbsp;<a class="btn btn-lg btn-default bdrRadius20"  href='#'  title='Add New Course'><i class="fa fa fa-plus"></i>  Add New Course</a> </div>
+                     -->
+                        <!-- <div class="col-sm-4 col-md-4 padder-v text-right">
+    
+                        <div class="clear" style="padding-top: 20px;"></div>
+                      <a  class="btn btn-lg btn-voilet" id="btnBuildCourse" name="btnBuildCourse" href="#" title="Add New Course"> <i class="build fa fa fa-plus"></i> Add New Course</a>
+                      </div>
+                    </div>->
+                  </section>
+              </div>
+    
+        <!--Responsive grid table -->
+                    </div>
+    
+                </section>
+    
+        </section>
+        <form name="deletecourse" action="" method="post">
+            <section class="scrollable">
+    
+                <section class="panel panel-default panelgridBg">
+                    <div class="panel row teacher-student-wrap" style=" margin-top:20px;">
+                        <ul class="nav nav-tabs">
+                                                        <li class="active"><a data-toggle="tab" href="#basic" onclick="courseGroupSubmit('Basic');">Introduction to Intellectual Property Rights</a></li>
+                            
+    
+                                                        <li><a data-toggle="tab" href="#intermediate" onclick="courseGroupSubmit('Intermediate');">Filing Process in Africa</a></li>
+                            
+                            
+                        </ul>
+    
+                        <div class="tab-content" style="    border: 1px solid #0000002b;border-radius:0px;border-top:0px;">
+                            <div id="basic" class="tab-pane fade in active">
+                                <!--Responsive grid table -->
+                                <div class="table-responsive promo courseGroup">
+                                    
+                                    <table class="table m-b-none dataTable">
+                                        <thead>
+                                            <tr>
+    
+                                                <th class="col-xs-4 text-left">Course Title</th>
+    
+                                                <th class="col-xs-2 text-center">Status</th>
+                                                <th class="col-xs-3 text-center">Time Spent</th>
+                                               
+                                                <th class="col-xs-3 text-center">Launch</th>
+                                                <th class="col-xs-3 text-center">Certificate</th>
+    
+                                        </thead>
+    
+                                                                                <tr >
+    
+                                                <td class="col-xs-4 text-left" >
+                                                    <!--    <a class="listitems" onFocus='this.blur()' onMouseOver='return showStatus();' href='course_details.php?cid=1&curPage=0&cCategory=&cContent=&cCode=&cTitle=&cDesc=&cKey=' title="Introduction and Patents">Introduction and Patents</a>-->
+                                                    <a class="listitems" href="javascript:launch_content(1,1,1024,700);">
+                                                        Introduction and Patents                                                </a>
+    
+    
+                                                </td>
+    
+                                                <td class="col-xs-2 text-center">Not Attempted</td>
+                                                <td class="col-xs-3 text-center">00:00:00</td>
+    
+    
+                                               
+                                                <td class="col-xs-3 text-center">
+                                                    <a onFocus='this.blur()' onMouseOver='return showStatus();' title='Launch course' href="javascript:launch_content(1,1,1024,700);"><img src='../../images/start-icon.png' border='0' width='20px' />
+                                                </td>
+                                                 <td class="col-xs-3 text-center">NA</td>
+                                                <!--<td align="center" class="Content">-</td>
+                                <td align="center" class="Content">-</td>-->
+    
+                                            </tr>
+    
+                                                                                <tr >
+    
+                                                <td class="col-xs-4 text-left" >
+                                                    <!--    <a class="listitems" onFocus='this.blur()' onMouseOver='return showStatus();' href='course_details.php?cid=2&curPage=0&cCategory=&cContent=&cCode=&cTitle=&cDesc=&cKey=' title="Trademarks">Trademarks</a>-->
+                                                    <a class="listitems" href="javascript:launch_content(2,2,1024,700);">
+                                                        Trademarks                                                </a>
+    
+    
+                                                </td>
+    
+                                                <td class="col-xs-2 text-center">Not Attempted</td>
+                                                <td class="col-xs-3 text-center">00:00:00</td>
+    
+    
+                                               
+                                                <td class="col-xs-3 text-center">
+                                                    <a onFocus='this.blur()' onMouseOver='return showStatus();' title='Launch course' href="javascript:launch_content(2,2,1024,700);"><img src='../../images/start-icon.png' border='0' width='20px' />
+                                                </td>
+                                                 <td class="col-xs-3 text-center">NA</td>
+                                                <!--<td align="center" class="Content">-</td>
+                                <td align="center" class="Content">-</td>-->
+    
+                                            </tr>
+    
+                                                                                <tr >
+    
+                                                <td class="col-xs-4 text-left" >
+                                                    <!--    <a class="listitems" onFocus='this.blur()' onMouseOver='return showStatus();' href='course_details.php?cid=3&curPage=0&cCategory=&cContent=&cCode=&cTitle=&cDesc=&cKey=' title="Copyrights and Industrial Designs">Copyrights and Industrial Designs</a>-->
+                                                    <a class="listitems" href="javascript:launch_content(3,3,1024,700);">
+                                                        Copyrights and Industrial Designs                                                </a>
+    
+    
+                                                </td>
+    
+                                                <td class="col-xs-2 text-center">Not Attempted</td>
+                                                <td class="col-xs-3 text-center">00:00:00</td>
+    
+    
+                                               
+                                                <td class="col-xs-3 text-center">
+                                                    <a onFocus='this.blur()' onMouseOver='return showStatus();' title='Launch course' href="javascript:launch_content(3,3,1024,700);"><img src='../../images/start-icon.png' border='0' width='20px' />
+                                                </td>
+                                                 <td class="col-xs-3 text-center">NA</td>
+                                                <!--<td align="center" class="Content">-</td>
+                                <td align="center" class="Content">-</td>-->
+    
+                                            </tr>
+    
+                                                                           
+                                    <tr>
+                                            <td class="col-xs-3 text-left"><span class=""></span>
+                                            </td>
+                                            <td class="col-xs-2 text-center">&nbsp;</td>
+                                            <td class="col-xs-3 text-center">&nbsp;</td>
+                                            <td class="col-xs-3 text-center">&nbsp;</td>
+                                             <td class="col-xs-1 text-center">&nbsp;</td>
+    
+                                            </tr>
+                                           
+                                           <tr>
+                                            <td class="col-xs-3 text-left"><span class="">TIPA Overview</span>
+                                            </td>
+                                            <td class="col-xs-2 text-center">&nbsp;</td>
+                                            <td class="col-xs-3 text-center">&nbsp;</td>
+                                            <td class="col-xs-3 text-center">&nbsp;</td>
+    
+                                            <td class="col-xs-2 text-center"> <a href='https://www.youtube.com/watch?v=L3xrjhNVUiU' target='_blank' class="pull-right btn btn-lg btn-default bdrRadius20 marginLeft5" onFocus='this.blur()' onMouseOver='return showStatus();' title='Launch' ><u>Watch Video</u></a>
+                                            
+    
+                                            </td>
+                                        </tr>
+                                           
+                                          
+                                           <tr>
+                                            <td class="col-xs-3 text-left"><span class="">The Inventor's Patent Academy (TIPA)</span>
+                                            </td>
+                                            <td class="col-xs-2 text-center">&nbsp;</td>
+                                            <td class="col-xs-3 text-center">&nbsp;</td>
+                                            <td class="col-xs-3 text-center">&nbsp;</td>
+    
+                                            <td class="col-xs-2 text-center"> <a href='https://learn.inventtogether.org/africa' target='_blank' class="pull-right btn btn-lg btn-default bdrRadius20 marginLeft5" onFocus='this.blur()' onMouseOver='return showStatus();' title='Launch' ><u>Launch</u></a>
+                                            
+    
+                                            </td>
+                                        </tr>
+    
+                                        <tr>
+                                            <td class="col-xs-3 text-left"><span class="">L2Pro Survey Questionnaire</span>
+                                            </td>
+                                            <td class="col-xs-2 text-center">&nbsp;</td>
+                                            <td class="col-xs-3 text-center">&nbsp;</td>
+                                            <td class="col-xs-3 text-center">&nbsp;</td>
+                                            <td class="col-xs-2 text-center">
+                                                                                                <a class="pull-right btn btn-lg btn-default bdrRadius20 marginLeft5" onFocus='this.blur()' onMouseOver='return showStatus();' title='Take survey' href="javascript:launch_survey(687022)"><u>Take
+                                                            Survey</u></a>
+                                                
+                                            </td>
+                                        </tr>
+    
+    
+    
+    
+                                    </table>
+    
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row-centered">
+                                        <div class="col-sm-12 col-xs-12 col-centered">
+    
+                                            <div class="text-center">
+                                                <table width="100%" cellspacing="0" cellpadding="3">
+    
+                                                    <tr>
+                                                        <td align='center' class='contentBold'>
+    
+                                                            
+                                                            
+                                                            
+    
+                                                            
+                                                                                                        </table>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <div id="intermediate" class="tab-pane">
+                                <!--Responsive grid table -->
+                                <div class="table-responsive promo courseGroup">
+                                    
+                                    <table class="table m-b-none dataTable">
+                                        <thead>
+                                            <tr>
+    
+                                                <th class="col-xs-3 text-left">Course Title</th>
+                                                <th class="col-xs-2 text-center">Status</th>
+                                                <th class="col-xs-3 text-center">Time Spent</th>
+                                                <th class="col-xs-3 text-center">Certificate</th>
+                                                <th class="col-xs-2 text-center">Launch</th>
+                                        </thead>
+    
+                                        

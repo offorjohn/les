@@ -1,0 +1,817 @@
+
+<script>
+var isEdit=false;
+var docId=-1;
+
+var helpWin=new Array();
+helpWin[1]='../help/Help-Home.htm';
+helpWin[2]='../help/Help-MyDetails.htm';
+helpWin[3]='../help/Help-Users.htm';
+helpWin[4]='../help/Help-Companies.htm';
+helpWin[5]='../help/Help-CourseCategories.htm';
+helpWin[6]='../help/Help-Course.htm';
+helpWin[7]='../help/Help-Feedback.htm';
+
+function openLoginHelp()
+{
+alert("This feature is currently under construction!");
+}
+</script>
+
+<!DOCTYPE html>
+<html  class="bgblue" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L2Pro Africa - Learner</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../images/Qulacomm.ico" />
+<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="../../assets/css/animate.css" />
+<link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="../../assets/css/font.css" />
+<link rel="stylesheet" type="text/css" href="../../assets/css/app.css" />
+<link href="../../assets/css/styles.css" rel="stylesheet" type="text/css">
+<meta name="language" content="en" />
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!-- Le styles -->
+<!-- Le fav and touch icons -->
+
+<script src="../../assets/js/jquery.min.js"></script>
+
+	 <!-- Bootstrap -->
+  <script src="../../assets/js/bootstrap.js"></script>
+  <!--JsAlert --> 
+  <script src="../../assets/js/jsAlert/alertify.min.js"></script>
+ 
+ <link rel="stylesheet" href="../../assets/js/jsAlert/alertify.core.css" />
+<!--<link rel="stylesheet" href="js/jsAlert/alertify.default.css" id="toggleCSS" />-->
+<link rel="stylesheet" href="../../assets/js/jsAlert/alertify.bootstrap.css" />
+    <!-- App -->
+ <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/app.plugin.js"></script>
+   <script src="../../assets/js/libs/modernizr.js"></script>
+    <!-- slim scroll -->
+  <script src="../../assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+ 
+
+  <!-- parsley(Validation) -->
+  <script src="../../assets/js/parsley/parsley.min.js"></script>
+  <script src="../../assets/js/parsley/parsley.extend.js"></script>
+  <!--chart-->
+
+<!-- date Picker --> 
+<script src="../../assets/js/datepicker/bootstrap-datepicker.js"></script>
+<link rel="stylesheet" href="../../assets/js/datepicker/bootstrap-datepicker.css">
+
+  <script src="../../assets/js/common.js?2024-07-18 14"></script>
+  <SCRIPT language="JavaScript" src="../global/global.js"></SCRIPT>
+<script>$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top-200
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+	
+	$("#mobileMenuBtn").click(function(){
+		$("#mobileMenu").slideToggle();
+		
+		
+	})
+	
+});
+
+/*document.onreadystatechange = function () {
+  var state = document.readyState
+  if (state == 'complete') {
+      setTimeout(function(){
+          document.getElementById('interactive');
+         document.getElementById('loaderDiv').style.visibility="hidden";
+      },1000);
+  }
+}*/
+
+
+jQuery(window).load(function() {
+ 
+ jQuery("#preloaderDiv").delay(100).fadeOut();
+})
+
+
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+
+
+var imgArray=new Array();
+imgArray[0]='../../graphics/Home_Btn.png';
+imgArray[1]='../../graphics/MyDetails_Btn.png';
+imgArray[2]='../../graphics/Courses_Btn.png';
+imgArray[3]='../../graphics/Feedback_Normal.png';
+imgArray[4]='../../graphics/Logout_Btn.png';
+
+var imgArrayRoll=new Array();
+imgArrayRoll[0]='../../graphics/Home_Roll_Btn.png';
+imgArrayRoll[1]='../../graphics/MyDetails_Roll_Btn.png';
+imgArrayRoll[2]='../../graphics/Courses_Roll_Btn.png';
+imgArrayRoll[3]='../../graphics/Feedback_RollOver.png';
+imgArrayRoll[4]='../../graphics/Logout_Roll_Btn.png';
+
+var currentObj='';
+var currentTD='';
+var totalItems=5;
+
+function menuClick(obj,link)
+{
+var templast='mrow'+totalItems;
+if(obj.id!=templast)
+	{
+for(i=1;i<=totalItems;i++)
+{
+	var tempRow=eval("document.getElementById('mrow"+i+"')");
+	tempRow.className='menuOff';
+
+	var tempRow=eval("document.getElementById('mIcon"+i+"')");
+	tempRow.src=imgArray[i-1];
+}
+
+	obj.className='menuClicked'
+	currentObj=obj.id
+
+	var tempNo=obj.id.substring(4,obj.id.length);
+	var tempImgId=eval('mIcon'+tempNo);
+	tempImgId.src=imgArrayRoll[tempNo-1];
+	}
+
+	if(link!='')
+	{
+	parent.ContentPanel.location=link;
+	}
+}
+
+function menuOver(obj)
+{
+	obj.style.cursor='hand';
+	//alert("obj.id"+obj.id+"currentObj"+currentObj);
+	if(obj.id!=currentObj)
+	{
+	obj.className='menuOn';
+	var tempNo=obj.id.substring(4,obj.id.length);
+	var tempImgId=eval('mIcon'+tempNo);
+	tempImgId.src=imgArrayRoll[tempNo-1];
+	
+	}
+}
+
+function menuOut(obj)
+{
+	if(obj.id!=currentObj)
+	{
+	obj.className='menuOff';
+	var tempNo=obj.id.substring(4,obj.id.length);
+	var tempImgId=eval('mIcon'+tempNo);
+	tempImgId.src=imgArray[tempNo-1];
+	}
+}
+
+function menuStart()
+{
+
+document.getElementById("mrow1").className='menuClicked';
+currentObj='mrow1';
+document.getElementById("mIcon1").src=imgArrayRoll[0];
+}
+
+function setState(obj)
+{
+//if(obj.id!=currentObj)
+//	{
+	for(i=1;i<=totalItems;i++)
+{
+	var tempTD=eval("document.getElementById('td"+i+"')");
+	tempTD.className='menuTextOff';
+}
+obj.className='menuTextClicked';
+//	}
+currentTD=obj.id;
+}
+
+function setOverSate(obj)
+{
+	obj.className='menuTextOn';
+}
+
+function setOutSate(obj)
+{
+//alert("currentObj : "+currentTD);
+	if(obj.id!=currentTD)
+	{
+obj.className='menuTextOff';
+	}
+}
+
+
+</script>
+  </head>
+<body>
+<div id="preloaderDiv" class="preloadBg">
+    <div id="overlayBlur"></div>
+    <div class="preloadDiv"> <img src="../../assets/images/default.svg" class="loadImg text-center"/>
+        <div class="loadText">Please wait<span>.</span><span>.</span><span>.</span>
+        </div>
+    </div>
+</div>
+
+<section class="vbox main-votex">
+ <header class="header dk navbar">
+    <div class="navbar-header"> 
+	 <!--<a href="javascript:void(0)" style="cursor: default" class="navbar-brand logImg" data-toggle="fullscreen"><img src="../../assets/images/logo.jpg" class="logo1"><img src="../../assets/images/NLU-logo.jpg" class="logo2"><img src="../../assets/images/CIIPC-Logo.jpg" class="logo3"><img src="../../assets/images/cipam-logo.png	" class="logo4"></a>  -->  
+
+	 <a href="javascript:void(0)" style="cursor: default" class="navbar-brand logImg" data-toggle="fullscreen"><img src="../../assets/images/logonew.png" class="logo1"></a>
+    
+	   <!-- <a href="javascript:void(0)" style="cursor: default" class="navbar-brand logImg" data-toggle="fullscreen"><img src="../../assets/images/logo.jpg" class="logo1"></a>--> </div>
+	
+    <ul class="callout nav navbar-nav navbar-right m-n hidden-xs nav-user">
+				
+      <li class="dropdown"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span class="thumb-sm avatar pull-left"> 
+						<img  src="../../assets/images/avatar_default.jpg"> 
+				  
+	  </span> <span>Offor <b class="caret"></b></span> </a>
+        <ul class="dropdown-menu animated fadeInRight">
+          <span class="arrow top"></span>
+           <!--<li> <a href="changePassword.php">Change Password</a> </li>-->
+		    <!-- <li> <a href="../mydtls/mydtls.php">Profile</a> </li>
+          <li class="divider"></li>-->
+          <li> <a href="#" onClick="call_logout()">Logout</a> </li>
+        </ul>
+      </li>
+    </ul>
+  </header>
+</section>
+<section>
+  <section class="hbox stretch">
+  
+ <aside class="bg-dark lter  hidden-print navTop" id="nav">
+      <section class="vbox">
+        <section class="w-f scrollable">
+          <div class="slimScrollDiv">
+            <div class="slim-scroll " data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
+              <!-- nav -->
+			   <a id="mobileMenuBtn" class="btn btn-link mobileMenuBtn visible-xs "> <i class="fa fa-bars"></i> </a>
+			     <nav class="nav-primary mobileMenu" id="mobileMenu" >
+				 <ul class="nav" id="yw0">
+					<li id="user" class="mobileuser"><span class="thumb-sm avatar pull-left"> 
+										<img  src="../../assets/images/avatar_default.jpg"> 
+					 </span> <span>offorchukwuebuka8@gmail.com</li>
+                  <li id="home"   class="nav home_menu"><a href="../intface/index.php"><span>Home</span></a></li>
+					 <li id="myDatailActive" class="nav my_details_menu"><a href="../mydtls/mydtls.html"><span>My Profile</span></a></li> 
+					  <li id="coursesActive" class="nav courses_menu"><a href="../catlist/courses.htnl"><span>Courses</span></a></li>
+					   
+					    <li id="feedbackActive" class="nav feedback_menu"><a href="../feedback/feedback.php"><span>Feedback</span></a></li>
+						
+                  <li class="nav"><a href="#" onClick="call_logout()"><span>Logout</span></a></li>
+                </ul>
+				 </nav>
+              <nav class="nav-primary hidden-xs">
+             
+                <ul class="nav" id="yw0">
+				 
+                  <li id="home" class="active nav home_menu"><a href="../intface/index.php"><i class="fa fa-home icon"><b class="bg-danger"></b></i><span>Home</span></a></li>
+		
+				   <!-- <li id="clientActive" class="nav"><a href="#"><i class="fa fa-user icon"><b class="bg-danger"></b></i><span>Clients</span></a></li> -->
+					 <li id="myDatailActive" class="nav my_details_menu"><a href="../mydtls/mydtls.php"><i class="fa fa-users icon"><b class="bg-danger"></b></i><span>My Profile</span></a></li> 
+					  <li id="coursesActive" class="nav courses_menu"><a href="../catlist/courses.php"><i class="fa fa-edit icon"><b class="bg-danger"></b></i><span>Courses</span></a></li>
+					   
+					    <li id="feedbackActive" class="nav feedback_menu"><a href="../feedback/feedback.php"><i class="fa fa-question-circle icon"><b class="bg-danger"></b></i><span>Feedback</span></a></li>
+						
+                  <li class="nav"><a href="#" onClick="call_logout()"><i class="fa fa-times-circle icon"><b class="bg-danger"></b></i><span>Logout</span></a></li>
+                </ul>
+             
+            </div>
+            <div class="slimScrollBar"></div>
+            <div lass="slimScrollRail"></div>
+          </div>
+        </section>
+      </section>
+    </aside> 
+<section id="content" class="rightside rightContenBg">
+
+  <div class="scrollable courseCountBg">  
+			  <span class="font-bold padder attemptedSessionDiv" >
+				
+
+				<!--<span class="attemptedSession strong" id="attemptedSession"></span>
+                <span class="h5">Course</span> -->
+				
+				
+				</span></div>
+<SCRIPT language="JavaScript" src="validate.js"></SCRIPT>
+<script>
+//function to clear the input fields
+function clearFields() {
+    //document.userInfo.fstnm.value="";
+    //document.userInfo.lstnm.value="";
+}
+</script>
+<script type="text/javascript" language="javascript">
+var mailExists = 0;
+var http_request = false;
+var tempTxt;
+var varid;
+
+function makeRequest(url, txt, ids) {
+    http_request = false;
+    tempTxt = txt;
+    varid = ids;
+    if (window.XMLHttpRequest) { // Mozilla, Safari,...
+        http_request = new XMLHttpRequest();
+        if (http_request.overrideMimeType) {
+            http_request.overrideMimeType('text/xml');
+            // See note below about this line
+        }
+    } else if (window.ActiveXObject) { // IE
+        try {
+            http_request = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                http_request = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {}
+        }
+    }
+
+    if (!http_request) {
+        alert('Giving up :( Cannot create an XMLHTTP instance');
+        return false;
+    }
+
+    http_request.onreadystatechange = alertContents;
+    http_request.open('GET', url, true);
+    http_request.send(null);
+
+}
+
+function alertContents() {
+    if (http_request.readyState == 4) {
+        if (http_request.status == 200) {
+
+
+            if (tempTxt == "check_list") {
+
+                if (http_request.responseText == "1") {
+                    document.getElementById("isMail").innerHTML = "Email address already exists!";
+                    mailExists = 0;
+                } else {
+                    document.getElementById("isMail").innerHTML = "";
+                    mailExists = 0;
+                }
+
+
+            }
+
+
+        } else {
+            alert('There was a problem with the request.');
+        }
+    }
+}
+
+
+function checkMail(val) {
+    if (Trim(val) != "" && echeck(val) != false) {
+        makeRequest('../../admin/crtuser/combo.php?action=chkMyMail&val=' + val, "check_list", val);
+    } else {
+        document.getElementById("isMail").innerHTML = "";
+    }
+}
+</script>
+
+<section class="scrollable">
+    <section class="panel panel-default padder contentTop">
+        <div class="col-lg-6 col-md-6 col-sm-6 show-mon">
+            <div class="pull-left m-b-xs  coursetitle"> <span class="orange_heading"><strong>Edit
+                        Profile</strong></span> </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+            <a onFocus='this.blur()' onMouseOver='return showStatus();' href="mydtls.html" target="_self"
+                class="btn btn-lg btn-default bdrRadius20 marginLeft5" title="Go back">Back</a>
+        </div>
+        <div class="clear"></div>
+        <div class="col-lg-12 col-md-12 col-sm-12 paddTop10">
+            <p>Type your new details in the relevant fields and click the Update button. Click the Back link to return
+                to the My Profile page.
+            </p>
+        </div>
+        <div class="paddTop10 divider"></div>
+    </section>
+    <div class="clear"></div>
+
+    <section class="panel panel-default padder paddTop10" style="overflow:hidden">
+
+        <form name="userInfo" data-validate="parsley" action="updtinfo.php" method="post" id="profileUpdateForm">
+            <div style="display: flex;flex-wrap: wrap;">
+                <div class="form-group col-sm-6 vTop">
+                    <label>First Name <span class="mandatory">*</span> <small>(Maximum 30 characters; No special
+                            or numeric characters)</small></label>
+                    <input name="fstnm" type="text" value=Offor id="fstnm" size="40" maxlength="30"
+                        data-required="true" data-regexp="^[a-zA-Z ]+$"
+                        data-regexp-message="First name should contain characters only."
+                        class="form-control parsley-validated" autocomplete="off" require />
+                </div>
+
+                <div class="form-group col-sm-6 vTop">
+                    <label>Last Name <span class="mandatory">*</span> <small>(Maximum 30 characters; No special
+                            or numeric characters)</small></label>
+
+                    <input type="text" name="lstnm" id="lstnm" value="John" size="40" maxlength="30"
+                        data-required="true" data-regexp="^[a-zA-Z ]+$"
+                        data-regexp-message="Last name should contain characters only."
+                        class="form-control parsley-validated" autocomplete="off" require>
+                </div>
+
+                <div class="form-group  col-sm-6 vTop">
+                    <label>Email ID <span class="mandatory">*</span> <small>(No spaces; Valid email
+                            address)</small></label>
+                    <input type="hidden" id="isMail" name='isMail' value="offorchukwuebuka8@gmail.com" />
+
+                    <input type="text" name="email" id="email" value="offorchukwuebuka8@gmail.com" data-required="true"
+                        data-type="email" size="40" maxlength="200" class="form-control parsley-validated"
+                        onblur='checkMail(this.value)' autocomplete="off" disabled>
+                </div>
+
+                <div class="form-group  col-sm-6 vTop">
+                    <label>Mobile <span class="mandatory">*</span> <small>(No spaces; Number only)</small></label>
+
+                    <input type="text" name="mobile" id="mobile" value="" size="10" min="10"
+                        maxlength="10" data-required="true" class="form-control parsley-validated" autocomplete="off"
+                        parsley-type="phone" data-type="phone" data-type-message="">
+                </div>
+
+                <div class="form-group  col-sm-6 vTop">
+                    <label>Gender <span class="mandatory">*</span></label>
+
+                    <select data-required="true" class="form-control input-lg width80" name="sex" id="sex">
+                        <option selected hidden disabled value="">Select</option>
+                        <option  value="male">Male</option>
+                        <option  value="female">Female</option>
+                        <option value="i prefer not to say" >I prefer not to say
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group  col-sm-6 vTop">
+                    <label>How did you hear about us
+                        <span class="mandatory">*</span>
+                    </label>
+
+                    <select name="learn_from" id="learn_from" data-required="true"
+                        class="form-control input-lg width80 learn-from" require>
+                        <option selected hidden disabled value="null">Select
+                        </option>
+                        <option >Social Media</option>
+                        <option > Webinar/Event</option>
+                        <option >Internet Search</option>
+                        <option >Friends/Colleague</option>
+                        <option >Others</option>
+                    </select>
+                </div>
+                <div class="form-group  col-sm-6 vTop">
+                    <label>Education Level<span class="mandatory">*</span></label>
+                    <select name="education" id="education" data-required="true"
+                        class="form-control input-lg width80 learn-from" require>
+                        <option selected hidden disabled value="">Select Level
+                        </option>
+                        <option >School</option>
+                        <option >Graduate</option>
+                        <option >Post-Graduate</option>
+                    </select>
+                </div>
+
+                <div class="form-group  col-sm-6 vTop">
+                    <label>Education Details<span class="mandatory">*</span></label>
+                    <input data-required="true" class="form-control input-lg width80" name="education_details"
+                        id="education_details" data-required="false" placeholder="Enter Your Education Details"
+                        type="text" value="" />
+                </div>
+
+               
+                <div class="form-group col-sm-6 vTop">
+                    <label>Profession<span class="mandatory">*</span></label>
+                    <select data-required="true" class="form-control input-lg width80 signup-profession"
+                        name="profession" id="LoginForm_profession" require>
+                        <option selected value="">Select Affiliation</option>
+                        <option  ?> Academia</option>
+                        <option  ?> Startup</option>
+                        <option  ?> MSME professional</option>
+                        <option  ?> Legal Professional</option>
+                        <option  ?> Other Industry professional</option>
+                        <option  ?> Government or Public Sector</option>
+                        <option  ?> Other</option>
+
+
+                   <!-- 
+                        <option  ?> Student</option>
+                        <option  ?> Working Professional
+                        </option>
+                        <option  ?> Entrepreneur</option> -->
+                    </select>
+                </div>
+
+                <div class="form-group col-sm-6 vTop profession_inputes_filds">
+                    <label>Professional Experience <span class="mandatory">*</span></label>
+
+                    <input type="text" name="profession_experience" id="profession_experience"
+                        value="" class="form-control "
+                        placeholder="Enter Professional Experience">
+                    <span style="color : #CA0606; display:none" id="profession_experience_error">This value is
+                        required.</span>
+                </div>
+
+                <div class="form-group  col-sm-6 vTop  profession_inputes_filds">
+                    <label>Industry <span class="mandatory">*</span></label>
+
+                    <select data-required="true" class="form-control input-lg width80 signup-profession"
+                        name="organization" id="LoginForm_profession" require>
+                        <option selected value="">Select Industry</option>
+                        <option  ?> Agriculture</option>
+                        <option  ?> Academia</option>
+                        <option  ?> Automotive</option>
+                        <option  ?> Biotech</option>
+                        <option  ?> Fintech</option>
+                        <option  ?> Pharma</option>
+                        <option  ?> Healthcare</option>
+                        <option  ?> Semiconductors</option>
+                        <option  ?> Telecommunications</option>
+                        <option  ?> Software & IT</option>
+                        <option  ?> Other Engineering</option>
+                        <option  ?> Other</option>                 
+                      
+                    </select>                   
+
+                    <!-- <input type="text" name="organization" id="organization"
+                        value="" maxlength="50" class="form-control"
+                        autocomplete="off" require>
+                    <span style="color : #CA0606; display:none" id="organization_error">This value is
+                        required.</span> -->
+                </div>
+
+                <div class="form-group  col-sm-6 vTop profession_inputes_filds">
+                    <label>Designation <span class="mandatory">*</span></label>
+
+                    <input type="text" name="designation" id="designation" value="" maxlength="50"
+                        class="form-control parsley-validated" autocomplete="off">
+                    <span style="color : #CA0606; display:none" id="designation_error">This value is required.</span>
+                </div>
+
+
+                <!-- <div class="form-group  col-sm-6 vTop">
+                    <label>City <span class="mandatory">*</span></label>
+
+                    <input type="text" name="user_city" id="user_city" value="" maxlength="50"
+                        data-required="true" class="form-control" autocomplete="off" placeholder="Enter City" require>
+                </div>
+
+
+                <div class="form-group  col-sm-6 vTop">
+                    <label>State <span class="mandatory">*</span></label>
+
+                    <input type="text" name="user_state" id="user_state" value="" maxlength="50"
+                        data-required="true" class="form-control" autocomplete="off" placeholder="Enter State" require>
+                </div> -->
+
+                <div class="form-group  col-sm-6 vTop">
+                    <label>Country <span class="mandatory">*</span></label>
+                    <select data-required="true" class="form-control input-lg width80 signup-profession"
+                        name="user_country" id="user_country" require>
+                        <option selected value="">Select Country</option>
+                        <option  ?> Algeria</option>
+                        <option  ?> Angola</option>
+                        <option  ?> Benin</option>
+                        <option  ?> Botswana</option>
+                        <option  ?> Burkina Faso</option>
+                        <option  ?> Burundi</option>
+                        <option  ?> Cabo Verde</option>
+                        <option  ?> Cameroon</option>
+                        <option  ?> Central African Republic</option>
+                        <option  ?> Chad</option>
+                       <option  ?> Comoros</option>
+                        <option  ?> Congo</option>
+                        <option  ?> Côte d'Ivoire</option>
+                        <option  ?> Djibouti</option>
+                        <option  ?> DR Congo</option>
+                        <option  ?> Egypt</option>
+                        <option  ?> Equatorial Guinea</option>
+                        <option  ?> Eritrea</option>
+                        <option  ?> Eswatini</option>
+                        <option  ?> Ethiopia</option>
+                        <option  ?> Gabon</option>
+                        <option  ?> Gambia</option>
+                        <option  ?> Ghana</option>
+                        <option  ?> Guinea</option>
+                        <option  ?> Guinea-Bissau</option>
+                        <option  ?> Kenya</option>
+                        <option  ?> Lesotho</option>
+                        <option  ?> Liberia</option>
+                        <option  ?> Libya</option>
+                        <option  ?> Madagascar</option>
+                        <option  ?> Malawi</option> 
+                        <option  ?> Mali</option>
+                        <option  ?> Mauritania</option>
+                        <option  ?> Mauritius</option>
+                        <option  ?> Morocco</option>
+                        <option  ?> Mozambique</option>
+                        <option  ?> Namibia</option>
+                        <option  ?> Niger</option>
+                        <option  ?> Nigeria</option>
+                        <option  ?> Rwanda</option>
+                        <option  ?> Sao Tome & Principe</option>
+                        <option  ?> Senegal</option>
+                        <option  ?> Seychelles</option> 
+                        <option  ?> Sierra Leone</option>
+                        <option  ?> Somalia</option>
+                        <option  ?> South Africa</option>
+                        <option  ?> South Sudan</option>
+                        <option  ?> Sudan</option>
+                        <option  ?> Tanzania</option>
+                        <option  ?> Togo</option>
+                        <option  ?> Tunisia</option>
+                        <option  ?> Uganda</option>
+                        <option  ?> Zambia</option>
+                        <option  ?> Zimbabwe</option>                      
+                    </select> 
+
+                    <!-- <input type="text" name="user_country" id="user_country" value=""
+                        data-required="true" class="form-control" autocomplete="off" placeholder="Enter Country"
+                        require> -->
+                </div>
+
+                <div class="form-group  col-sm-6 vTop">
+                    <label>Zip Code <span class="mandatory">*</span></label>
+
+
+                    <input type="text" name="zip_code" id="zip_code" value="" maxlength="50"
+                        data-required="true" class="form-control" autocomplete="off" placeholder="Enter Zip Code"
+                        require>
+                </div>
+
+                <div class="form-group  col-sm-6 vTop">
+                <label style="margin-bottom:0px;">
+                    <input type="checkbox" id="checkbox-1-2"  name="allow_email_for_marketing" value="true" class="regular-checkbox" onclick="checkShow(this.id,'checkbox-1-2');">
+                    <label id="terms-conds-label" for="checkbox-1-2"></label>
+                    <span class="check"></span>
+                </label>
+                <span class="remember">
+                Your privacy is important to us. By checking this box, you agree to receive communication from L2PRO India regarding L2PRO program features, prompts to complete the course, feedback regarding the course and marketing communication. You will have the option to unsubscribe at any point of time from your profile page.
+                </span>
+                
+                <!-- <br><br>
+                <label style="margin-bottom:0px;">
+                    <input type="checkbox" id="checkbox-1-3" name="allow_email_for_campaign"  value="true" class="regular-checkbox">
+                    <label id="terms-conds-label" for="checkbox-1-3"></label>
+                    <span class="check"></span>
+                </label>
+                <span class="remember">
+                    I allow my email for Campaign
+                </span> -->
+
+            </div>
+            <div class="form-group  col-sm-6 vTop">
+
+                    <div class="divider">
+
+                    </div>
+                    <div class="clear">
+
+                    </div>
+                    <div class="text-right">
+                        <button type="button" class=' btn btn-red' title='Replace my old details with new'
+                            id="updatePfofilebutton">
+                            <i class="build fa fa fa-file-text-o"></i> Update </button>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </form>
+    </section>
+</section>
+
+<!--footer-->
+
+<div class="footer">
+          <div class="container">
+            <div class="row">
+              <div id="footer-copyright" class="col-md-6"> </div>
+              <!-- /span6 -->
+              <div id="footer-terms" class="col-md-6"><a><!--Powered by LIQVID--></a>. </div>
+              <!-- /.span6 -->
+            </div>
+            <!-- /row -->
+          </div>
+          <!-- /container -->
+</div>
+<!--end footer-->
+	     </section>
+    </section>
+  </section>
+</section>	
+		
+<!--<div id="loaderDivCommon" class="loadBg">
+    <div id="overlayBlur"></div>
+    <div class="loadDiv"> <img src="../graphics/default.svg" class="loadImg text-center"/>
+        <div class="loadText">Please wait<span>.</span><span>.</span><span>.</span>
+        </div>
+    </div>
+</div>-->
+
+	
+	<script>
+$(".my_details_menu").addClass('active');
+$(".home_menu").removeClass('active');
+</script>
+ 
+</body></html>
+<script>
+    $(document).on('click', '#updatePfofilebutton', function(e) {
+        var designation = $('#designation').val();
+        var organization = $('#organization').val();
+        var profession_experience = $('#profession_experience').val();
+
+        var profession = $('#LoginForm_profession').val();
+        console.log(profession);
+        if (profession == 'Working Professional') {
+
+            if (!designation) {
+                $('#designation_error').show();
+                return 0;
+            }else if (!organization) {
+                $('#organization_error').show();
+                return 0;
+            }else if (!profession_experience) {
+                $('#profession_experience_error').show();
+                return 0;
+            }else{
+                $('#profileUpdateForm').submit();
+            }
+        }else{
+            $('#profileUpdateForm').submit();
+        }
+    });
+  	
+  	
+
+	$(document).on('change', '#LoginForm_profession', function(e) {
+    	
+   	  showHideProfessionFields($(this).val());
+	})
+    
+    
+    function showHideProfessionFields(value){
+    	if (value == 'Student') {
+        	$('.profession_inputes_filds').hide();
+    	}else{
+         	$('.profession_inputes_filds').show();
+        }
+    }
+    
+    var profession = '';
+  	showHideProfessionFields(profession);
+
+
+/* Zapatec.Calendar.setup({
+    inputField: "dob", // ID of the input field
+    ifFormat: "%m/%d/%Y", // the date format
+    button: "trigger1" // ID of the button
+});
+
+Zapatec.Calendar.setup({
+    inputField: "doj", // ID of the input field
+    ifFormat: "%m/%d/%Y", // the date format
+    button: "trigger2" // ID of the button
+}); */
+</script>
